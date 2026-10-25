@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Returns & Exchanges | SIXPLUS</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #111111;
+    --white: #ffffff;
+    --grey: #777777;
+    --light: #f6f6f6;
+    --border: #e5e5e5;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--black);
+    background: var(--white);
+    line-height: 1.7;
+}
+
+/* HEADER */
+
+header {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: var(--black);
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    opacity: 0.55;
+}
+
+/* HERO */
+
+.hero {
+    background: var(--black);
+    color: var(--white);
+    padding: 90px 20px;
+    text-align: center;
+}
+
+.hero .label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #bbbbbb;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 6vw, 65px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.hero p {
+    margin: 20px auto 0;
+    max-width: 550px;
+    color: #cccccc;
+    font-size: 14px;
+}
+
+/* MAIN CONTENT */
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 65px 25px 90px;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.intro h2 {
+    font-size: 27px;
+    margin-bottom: 12px;
+    font-weight: 800;
+}
+
+.intro p {
+    font-size: 14px;
+    color: var(--grey);
+}
+
+/* POLICY CARDS */
+
+.policy {
+    border-bottom: 1px solid var(--border);
+    padding: 28px 0;
+}
+
+.policy h3 {
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.policy p {
+    font-size: 14px;
+    color: #555555;
+    margin-bottom: 10px;
+}
+
+.policy ul {
+    padding-left: 22px;
+    color: #555555;
+    font-size: 14px;
+}
+
+.policy li {
+    padding: 4px 0;
+}
+
+/* STEPS */
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.step {
+    background: var(--light);
+    padding: 22px;
+}
+
+.step-number {
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    color: #888888;
+}
+
+.step h4 {
+    font-size: 15px;
+    margin: 10px 0 5px;
+}
+
+.step p {
+    font-size: 13px;
+    margin: 0;
+}
+
+/* CONTACT */
+
+.contact {
+    background: var(--light);
+    padding: 35px;
+    margin-top: 45px;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.contact p {
+    font-size: 14px;
+    color: #555555;
+}
+
+.contact a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 13px 28px;
+    background: var(--black);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.contact a:hover {
+    background: #333333;
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 35px 20px;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+
+footer p {
+    color: #aaaaaa;
+    font-size: 11px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+footer .tagline {
+    color: var(--white);
+    margin-top: 15px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    header {
+        height: auto;
+        min-height: 70px;
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    nav {
+        gap: 17px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 10px;
+    }
+
+    .hero {
+        padding: 70px 20px;
+    }
+
+    .container {
+        padding: 45px 20px 60px;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .contact {
+        padding: 28px 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+    <a href="index.html" class="logo">SIXPLUS</a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#shop">Shop</a>
+        <a href="return-exchange.html">Returns</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+    <p class="label">SIXPLUS CUSTOMER CARE</p>
+
+    <h1>Returns &<br>Exchanges</h1>
+
+    <p>
+        Not the right fit? We're here to help.
+        Your shopping experience matters to us.
+    </p>
+</section>
+
+<!-- POLICY CONTENT -->
+
+<main class="container">
+
+    <section class="intro">
+        <h2>OUR RETURN POLICY</h2>
+
+        <p>
+            At SIXPLUS, we believe shopping should be simple.
+            Please review our policy before requesting a return
+            or exchange.
+        </p>
+    </section>
+
+    <section class="policy">
+        <h3>01. Return & Exchange Eligibility</h3>
+
+        <p>You may request a return or exchange if:</p>
+
+        <ul>
+            <li>You received a damaged or defective product.</li>
+            <li>You received the wrong product, size or colour.</li>
+            <li>You received a product with a manufacturing defect.</li>
+        </ul>
+
+        <p>
+            Products must be unused, unworn and unwashed, with
+            original tags and packaging intact, subject to
+            applicable consumer protection laws.
+        </p>
+    </section>
+
+    <section class="policy">
+        <h3>02. Return Window</h3>
+
+        <p>
+            Contact us within 7 days of receiving your order
+            to report an issue. We will review your request
+            and inform you of the next steps.
+        </p>
+    </section>
+
+    <section class="policy">
+        <h3>03. Items Not Eligible for Return</h3>
+
+        <ul>
+            <li>Products that have been worn, washed or used.</li>
+            <li>Products damaged through improper use or care.</li>
+            <li>Products missing original tags or packaging.</li>
+        </ul>
+
+        <p>
+            These conditions do not limit any rights available
+            to customers under applicable law.
+        </p>
+    </section>
+
+    <section class="policy">
+        <h3>04. How to Request a Return or Exchange</h3>
+
+        <p>
+            Follow these simple steps to submit your request.
+        </p>
+
+        <div class="steps">
+
+            <div class="step">
+                <span class="step-number">STEP 01</span>
+                <h4>Contact Us</h4>
+                <p>
+                    Contact our support team with your order number.
+                </p>
+            </div>
+
+            <div class="step">
+                <span class="step-number">STEP 02</span>
+                <h4>Share Details</h4>
+                <p>
+                    Explain the issue and share product photos
+                    when relevant.
+                </p>
+            </div>
+
+            <div class="step">
+                <span class="step-number">STEP 03</span>
+                <h4>Request Review</h4>
+                <p>
+                    Our team will review your request and confirm
+                    eligibility.
+                </p>
+            </div>
+
+            <div class="step">
+                <span class="step-number">STEP 04</span>
+                <h4>Get Resolution</h4>
+                <p>
+                    We will explain the approved return,
+                    exchange or refund process.
+                </p>
+            </div>
+
+        </div>
+
+        <p style="margin-top: 18px;">
+            Please wait for our instructions before sending
+            a product back.
+        </p>
+    </section>
+
+    <section class="policy">
+        <h3>05. Size Exchanges</h3>
+
+        <p>
+            Need a different size? Contact us within 7 days
+            of delivery. Exchanges depend on product availability
+            and eligibility.
+        </p>
+
+        <p>
+            If the requested size is unavailable, our team
+            will explain the available alternatives.
+        </p>
+    </section>
+
+    <section class="policy">
+        <h3>06. Refunds</h3>
+
+        <p>
+            If a return is approved, refunds will be processed
+            according to the applicable policy and law.
+            Processing times may vary depending on your bank
+            or payment provider.
+        </p>
+
+        <p>
+            For Cash on Delivery orders, please contact our
+            support team for the available refund process.
+        </p>
+    </section>
+
+    <section class="policy">
+        <h3>07. Return Shipping</h3>
+
+        <p>
+            For damaged, defective or incorrect products,
+            we will coordinate an appropriate resolution
+            in accordance with applicable law.
+        </p>
+
+        <p>
+            For other eligible requests, any return shipping
+            charges will be communicated before processing.
+        </p>
+    </section>
+
+    <section class="policy">
+        <h3>08. Order Cancellation</h3>
+
+        <p>
+            Contact us as soon as possible if you wish to
+            cancel an order. Cancellation may not be possible
+            after dispatch. Eligible refunds will be handled
+            according to applicable law.
+        </p>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="contact">
+        <h2>NEED HELP?</h2>
+
+        <p>
+            Have a question about your order, return or exchange?
+            Our team is here to help.
+        </p>
+
+        <!-- Replace this email with your real support email -->
+
+        <a href="mailto:sixplus268@gmail.com">
+            CONTACT SUPPORT
+        </a>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="footer-logo">SIXPLUS</div>
+
+    <p class="tagline">
+        WEAR YOUR IDENTITY. OWN YOUR STYLE.
+    </p>
+
+    <p>© 2026 SIXPLUS. ALL RIGHTS RESERVED.</p>
+</footer>
+
+</body>
+</html>

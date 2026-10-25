@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Track Your Order | SIXPLUS</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111;
+    background: #fff;
+    line-height: 1.6;
+}
+
+header {
+    height: 75px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.logo {
+    color: #111;
+    text-decoration: none;
+    font-size: 27px;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #111;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hero {
+    background: #111;
+    color: white;
+    padding: 75px 20px;
+    text-align: center;
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #aaa;
+    margin-bottom: 17px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 60px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1.1;
+}
+
+.hero p {
+    margin: 18px auto 0;
+    max-width: 500px;
+    color: #ccc;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 720px;
+    margin: auto;
+    padding: 65px 22px 85px;
+}
+
+.form-box {
+    border: 1px solid #e5e5e5;
+    padding: 35px;
+}
+
+.form-box h2 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 28px;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 20px 0 8px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 14px;
+    background: #fff;
+}
+
+input:focus {
+    border-color: #111;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 25px;
+    background: #111;
+    color: white;
+    border: none;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #333;
+}
+
+#result {
+    display: none;
+    margin-top: 25px;
+    padding: 20px;
+    background: #f6f6f6;
+}
+
+#result h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+#result p {
+    font-size: 13px;
+    color: #555;
+    margin-top: 5px;
+}
+
+.notice {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 12px;
+    color: #777;
+}
+
+.notice a {
+    color: #111;
+    font-weight: bold;
+}
+
+footer {
+    background: #111;
+    color: white;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+
+footer p {
+    margin-top: 10px;
+    color: #aaa;
+    font-size: 11px;
+}
+
+.order-status {
+    display: inline-block;
+    margin-left: 5px;
+    padding: 5px 10px;
+    background: #e8f5d0;
+    color: #171717;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 3px;
+}
+
+.tracking-note {
+    margin-top: 15px !important;
+    padding-top: 12px;
+    border-top: 1px solid #ddd;
+    font-size: 11px !important;
+}
+
+
+
+button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+/* SIXPLUS PROFESSIONAL ORDER TIMELINE */
+
+.tracking-card {
+    margin-top: 22px;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+}
+
+.tracking-heading {
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 6px;
+}
+
+.tracking-description {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 24px;
+}
+
+.tracking-timeline {
+    margin-top: 25px;
+    position: relative;
+}
+
+.tracking-step {
+    display: flex;
+    gap: 16px;
+    position: relative;
+    min-height: 82px;
+}
+
+.tracking-step:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 33px;
+    height: calc(100% - 30px);
+    width: 2px;
+    background: #dedede;
+}
+
+.tracking-step.completed:not(:last-child)::before {
+    background: #111;
+}
+
+.step-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    background: white;
+    color: #777;
+    font-size: 13px;
+    font-weight: 800;
+    z-index: 1;
+}
+
+.tracking-step.completed .step-icon {
+    background: #111;
+    border-color: #111;
+    color: white;
+}
+
+.tracking-step.current .step-icon {
+    border: 2px solid #111;
+    color: #111;
+    box-shadow: 0 0 0 4px #eee;
+}
+
+.step-content {
+    padding: 3px 0 22px;
+}
+
+.step-title {
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.step-description {
+    font-size: 11px;
+    color: #777;
+    margin-top: 4px;
+}
+
+.tracking-step.pending .step-title {
+    color: #999;
+}
+
+.order-details {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.order-details p {
+    margin: 10px 0;
+    overflow-wrap: anywhere;
+}
+
+.status-cancelled {
+    background: #ffe5e5;
+    color: #a00000;
+}
+
+.tracking-error {
+    border: 1px solid #eee;
+    background: #fafafa;
+    padding: 20px;
+}
+
+@media(max-width:600px) {
+    .tracking-card {
+        padding: 18px;
+    }
+
+    .tracking-heading {
+        font-size: 18px;
+    }
+
+    .tracking-step {
+        min-height: 78px;
+    }
+}
+
+@media(max-width:600px) {
+    header {
+        height: auto;
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 10px;
+    }
+
+    .hero {
+        padding: 60px 18px;
+    }
+
+    .container {
+        padding: 40px 18px 60px;
+    }
+
+    .form-box {
+        padding: 23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="logo">SIXPLUS</a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#shop">Shop</a>
+        <a href="shipping-delivery.html">Shipping</a>
+        <a href="return-exchange.html">Returns</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="eyebrow">SIXPLUS CUSTOMER CARE</div>
+    <h1>TRACK YOUR<br>ORDER</h1>
+    <p>
+        Your next favourite fit is on its way.
+        Enter your order details to check its status.
+    </p>
+</section>
+
+<main class="container">
+
+    <section class="form-box">
+        <h2>Where's My Order?</h2>
+
+        <p class="subtitle">
+            Enter the details associated with your order.
+        </p>
+
+        <form id="trackForm">
+
+            <label for="orderId">ORDER ID</label>
+
+            <input
+                type="text"
+                id="orderId"
+                placeholder="e.g. SIXPLUS-1001"
+                required
+            >
+
+            <label for="email">EMAIL ADDRESS</label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your order email"
+                required
+            >
+
+            <button type="submit">TRACK ORDER →</button>
+
+        </form>
+
+        <div id="result" role="status" aria-live="polite"></div>
+    </section>
+
+    <div class="notice">
+        Need help with your order?
+        <br>
+        Contact us at
+        <a href="mailto:YOUR-EMAIL@example.com">Customer Support</a>.
+    </div>
+
+</main>
+
+<footer>
+    <div class="footer-logo">SIXPLUS</div>
+    <p>WEAR YOUR IDENTITY. OWN YOUR STYLE.</p>
+    <p>© 2026 SIXPLUS. ALL RIGHTS RESERVED.</p>
+</footer>
+
+<script>
+"use strict";
+
+// SIXPLUS Google Apps Script Web App URL
+const TRACKING_API =
+  "https://script.google.com/macros/s/AKfycbzy-4MZsMmLk1_hMsXapUigEdAIKCXfGTOwUAXhVrbFdsWXD5XLx8LBJzQWChgvRVa9BQ/exec";
+  
+
+const form = document.getElementById("trackForm");
+const result = document.getElementById("result");
+const submitButton = form.querySelector('button[type="submit"]');
+
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const orderId = document.getElementById("orderId").value.trim();
+  const email = document.getElementById("email").value.trim();
+
+  if (!orderId || !email) {
+    showMessage(
+      "Missing Details",
+      "Please enter your Order ID and email address."
+    );
+    return;
+  }
+
+  result.style.display = "block";
+  result.innerHTML = `
+    <h3>Checking Your Order...</h3>
+    <p>Please wait while we retrieve your order details.</p>
+  `;
+
+  submitButton.disabled = true;
+  submitButton.textContent = "CHECKING ORDER...";
+
+  try {
+    const url = new URL(TRACKING_API);
+
+    url.searchParams.set("orderId", orderId);
+    url.searchParams.set("email", email);
+
+    const response = await fetch(url.toString(), {
+      method: "GET",
+      redirect: "follow"
+    });
+
+    if (!response.ok) {
+      throw new Error("Unable to connect to the tracking service.");
+    }
+
+    const data = await response.json();
+
+    if (!data.success || !data.order) {
+      showMessage(
+        "Order Not Found",
+        data.message ||
+          "We couldn't find an order matching those details. Please check your Order ID and email."
+      );
+      return;
+    }
+
+    displayOrder(data.order);
+
+  } catch (error) {
+    console.error("SIXPLUS tracking error:", error);
+
+    showMessage(
+      "Tracking Temporarily Unavailable",
+      "We couldn't retrieve your order right now. Please try again in a moment."
+    );
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = "TRACK ORDER →";
+  }
+});
+
+function displayOrder(order) {
+    const rawStatus = String(order.status || "New").trim();
+    const normalizedStatus = rawStatus.toLowerCase();
+
+    const statusAliases = {
+        "new": "order received",
+        "received": "order received",
+        "order received": "order received",
+        "confirmed": "confirmed",
+        "order confirmed": "confirmed",
+        "processing": "packed",
+        "packed": "packed",
+        "shipped": "shipped",
+        "in transit": "shipped",
+        "out for delivery": "out for delivery",
+        "delivered": "delivered",
+        "cancelled": "cancelled",
+        "canceled": "cancelled"
+    };
+
+    const currentStatus =
+        statusAliases[normalizedStatus] || normalizedStatus;
+
+    const steps = [
+        {
+            id: "order received",
+            title: "Order Received",
+            description: "Your order has been received by SIXPLUS."
+        },
+        {
+            id: "confirmed",
+            title: "Confirmed",
+            description: "Your order has been confirmed."
+        },
+        {
+            id: "packed",
+            title: "Packed",
+            description: "Your items are being prepared for dispatch."
+        },
+        {
+            id: "shipped",
+            title: "Shipped",
+            description: "Your order has been dispatched."
+        },
+        {
+            id: "out for delivery",
+            title: "Out for Delivery",
+            description: "Your order is out for delivery."
+        },
+        {
+            id: "delivered",
+            title: "Delivered",
+            description: "Your order has been delivered."
+        }
+    ];
+
+    const isCancelled = currentStatus === "cancelled";
+
+    let currentIndex = steps.findIndex(
+        step => step.id === currentStatus
+    );
+
+    // Unknown statuses must not be shown as delivered.
+    if (currentIndex === -1 && !isCancelled) {
+        currentIndex = 0;
+    }
+
+    const timelineHTML = isCancelled
+        ? `
+            <div class="tracking-card">
+                <h3 class="tracking-heading">Order Cancelled</h3>
+                <p class="tracking-description">
+                    This order is marked as cancelled in our system.
+                </p>
+                <span class="order-status status-cancelled">
+                    Cancelled
+                </span>
+            </div>
+        `
+        : `
+            <div class="tracking-card">
+                <h3 class="tracking-heading">Order Progress</h3>
+                <p class="tracking-description">
+                    Current status:
+                    <strong>${escapeHTML(getStatusLabel(currentStatus))}</strong>
+                </p>
+
+                <div class="tracking-timeline">
+                    ${steps.map((step, index) => {
+                        let state = "pending";
+                        let icon = "";
+
+                        if (index < currentIndex) {
+                            state = "completed";
+                            icon = "✓";
+                        } else if (index === currentIndex) {
+                            state = "current";
+                            icon = "•";
+                        }
+
+                        if (index === currentIndex && currentIndex === 5) {
+                            state = "completed";
+                            icon = "✓";
+                        }
+
+                        return `
+                            <div class="tracking-step ${state}">
+                                <div class="step-icon">${icon}</div>
+                                <div class="step-content">
+                                    <div class="step-title">
+                                        ${step.title}
+                                    </div>
+                                    <div class="step-description">
+                                        ${step.description}
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join("")}
+                </div>
+            </div>
+        `;
+
+    result.style.display = "block";
+
+    result.innerHTML = `
+        <h3>Order Found ✓</h3>
+
+        ${timelineHTML}
+
+        <div class="order-details">
+            <h3>Order Details</h3>
+
+            <p>
+                <strong>Order ID:</strong>
+                ${escapeHTML(order.orderId || "Not available")}
+            </p>
+
+            <p>
+                <strong>Order Date:</strong>
+                ${escapeHTML(formatOrderDate(order.date))}
+            </p>
+
+            <p>
+                <strong>Order Status:</strong>
+                <span class="order-status ${isCancelled ? "status-cancelled" : ""}">
+                    ${escapeHTML(isCancelled ? "Cancelled" : getStatusLabel(currentStatus))}
+                </span>
+            </p>
+
+            <p>
+                <strong>Payment Method:</strong>
+                ${escapeHTML(order.paymentMethod || "Not available")}
+            </p>
+
+            <p>
+                <strong>Total Amount:</strong>
+                ${escapeHTML(formatAmount(order.total))}
+            </p>
+
+            <p class="tracking-note">
+                Tracking reflects the latest status recorded in the SIXPLUS order system.
+            </p>
+        </div>
+    `;
+}
+
+function getStatusLabel(status) {
+    const labels = {
+        "order received": "Order Received",
+        "confirmed": "Confirmed",
+        "packed": "Packed",
+        "shipped": "Shipped",
+        "out for delivery": "Out for Delivery",
+        "delivered": "Delivered",
+        "cancelled": "Cancelled"
+    };
+
+    return labels[status] || status;
+}
+
+function formatOrderDate(value) {
+    if (!value) return "Not available";
+
+    const date = new Date(value);
+
+    if (Number.isNaN(date.getTime())) {
+        return String(value);
+    }
+
+    return date.toLocaleString("en-IN", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+    });
+}
+
+function showMessage(title, message) {
+  result.style.display = "block";
+
+  result.innerHTML = `
+    <h3>${escapeHTML(title)}</h3>
+    <p>${escapeHTML(message)}</p>
+  `;
+}
+
+function formatAmount(value) {
+  if (value === null || value === undefined || value === "") {
+    return "Not available";
+  }
+
+  const amount = Number(value);
+
+  if (!Number.isFinite(amount)) {
+    return String(value);
+  }
+
+  return new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    maximumFractionDigits: 2
+  }).format(amount);
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, function (char) {
+    return {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    }[char];
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Us | SIXPLUS</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #111;
+    --white: #fff;
+    --grey: #777;
+    --light: #f6f6f6;
+    --border: #e7e7e7;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.7;
+}
+
+/* HEADER */
+
+header {
+    min-height: 75px;
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    text-decoration: none;
+    color: var(--black);
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    opacity: .55;
+}
+
+/* HERO */
+
+.hero {
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #aaa;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 65px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1.1;
+}
+
+.hero p {
+    max-width: 520px;
+    margin: 20px auto 0;
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* MAIN */
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 65px 25px 85px;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.intro h2 {
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    color: var(--grey);
+    font-size: 14px;
+}
+
+/* CONTACT LAYOUT */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    gap: 35px;
+    align-items: start;
+}
+
+/* CONTACT INFORMATION */
+
+.contact-info {
+    background: var(--black);
+    color: var(--white);
+    padding: 35px;
+}
+
+.contact-info h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.contact-info > p {
+    color: #bbb;
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+
+.info-item {
+    border-top: 1px solid #333;
+    padding: 20px 0;
+}
+
+.info-item h3 {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+}
+
+.info-item p,
+.info-item a {
+    color: #ccc;
+    font-size: 13px;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.info-item a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* CONTACT FORM */
+
+.contact-form {
+    border: 1px solid var(--border);
+    padding: 35px;
+}
+
+.contact-form h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.form-description {
+    color: var(--grey);
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+label {
+    display: block;
+    margin: 16px 0 7px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .5px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    background: white;
+    color: var(--black);
+    font: inherit;
+    font-size: 13px;
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--black);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 22px;
+    border: none;
+    background: var(--black);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #333;
+}
+
+.form-note {
+    margin-top: 12px;
+    color: var(--grey);
+    font-size: 11px;
+}
+
+#formStatus {
+    margin-top: 15px;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+/* FAQ */
+
+.faq {
+    margin-top: 75px;
+    text-align: center;
+}
+
+.faq h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    text-align: left;
+}
+
+.faq-card {
+    padding: 25px;
+    background: var(--light);
+}
+
+.faq-card h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.faq-card p {
+    color: var(--grey);
+    font-size: 12px;
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 35px 20px;
+}
+
+.footer-logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+
+footer p {
+    color: #aaa;
+    font-size: 11px;
+    margin-top: 10px;
+}
+
+footer .tagline {
+    color: white;
+    letter-spacing: 1px;
+}
+
+/* MOBILE */
+
+@media(max-width: 750px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    nav {
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 10px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 25px;
+    }
+
+    .container {
+        padding: 45px 18px 60px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+    <a href="index.html" class="logo">SIXPLUS</a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#shop">Shop</a>
+        <a href="track-order.html">Track Order</a>
+        <a href="return-exchange.html">Returns</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+    <div class="eyebrow">WE'RE HERE FOR YOU</div>
+
+    <h1>CONTACT US</h1>
+
+    <p>
+        Questions about your order, sizing, or our collection?
+        Get in touch with the SIXPLUS team.
+    </p>
+</section>
+
+<!-- MAIN CONTENT -->
+
+<main class="container">
+
+    <section class="intro">
+        <h2>LET'S TALK</h2>
+
+        <p>
+            Your experience matters to us.
+            We're here to help with your SIXPLUS journey.
+        </p>
+    </section>
+
+    <section class="contact-grid">
+
+        <!-- CONTACT DETAILS -->
+
+        <div class="contact-info">
+            <h2>Get In Touch.</h2>
+
+            <p>
+                Need help with an order or have a question?
+                Contact us using the details below.
+            </p>
+
+            <div class="info-item">
+                <h3>EMAIL SUPPORT</h3>
+
+                <!-- Replace with your real email -->
+
+                <a href="mailto:YOUR-EMAIL@example.com">
+                    YOUR-EMAIL@example.com
+                </a>
+            </div>
+
+            <div class="info-item">
+                <h3>PHONE / WHATSAPP</h3>
+
+                <!-- Replace with your business number -->
+
+                <a href="tel:+910000000000">
+                    Add Your Business Number
+                </a>
+            </div>
+
+            <div class="info-item">
+                <h3>BUSINESS HOURS</h3>
+
+                <p>Monday – Saturday</p>
+                <p>10:00 AM – 6:00 PM IST</p>
+            </div>
+
+            <div class="info-item">
+                <h3>ORDER SUPPORT</h3>
+
+                <p>
+                    Please include your order number when
+                    contacting us about an existing order.
+                </p>
+            </div>
+        </div>
+
+        <!-- CONTACT FORM -->
+
+        <div class="contact-form">
+
+            <h2>Send Us a Message</h2>
+
+            <p class="form-description">
+                Fill out the form below and tell us how we can help.
+            </p>
+
+            <form id="contactForm">
+
+                <div class="form-row">
+                    <div>
+                        <label for="name">FULL NAME *</label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Your name"
+                            autocomplete="name"
+                            required
+                        >
+                    </div>
+
+                    <div>
+                        <label for="email">EMAIL ADDRESS *</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <label for="order">ORDER NUMBER (OPTIONAL)</label>
+
+                <input
+                    type="text"
+                    id="order"
+                    name="order"
+                    placeholder="e.g. SIXPLUS-1001"
+                >
+
+                <label for="subject">HOW CAN WE HELP? *</label>
+
+                <select id="subject" name="subject" required>
+                    <option value="">Select a topic</option>
+                    <option value="Order Status">Order Status</option>
+                    <option value="Shipping & Delivery">Shipping & Delivery</option>
+                    <option value="Return & Exchange">Return & Exchange</option>
+                    <option value="Size & Product">Size & Product Question</option>
+                    <option value="Payment">Payment Issue</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="message">YOUR MESSAGE *</label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Write your message here..."
+                    required
+                ></textarea>
+
+                <button type="submit">SEND MESSAGE →</button>
+
+                <p class="form-note">
+                    Please do not include passwords or payment card details.
+                </p>
+
+                <p id="formStatus" role="status" aria-live="polite"></p>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- FAQ -->
+
+    <section class="faq">
+
+        <h2>NEED QUICK HELP?</h2>
+
+        <div class="faq-grid">
+
+            <div class="faq-card">
+                <h3>Where Is My Order?</h3>
+
+                <p>
+                    Visit our Track Your Order page to check
+                    available tracking information.
+                </p>
+
+                <p style="margin-top:12px;">
+                    <a href="track-order.html">Track Order →</a>
+                </p>
+            </div>
+
+            <div class="faq-card">
+                <h3>Want to Exchange?</h3>
+
+                <p>
+                    Review our return and exchange policy
+                    for eligibility and instructions.
+                </p>
+
+                <p style="margin-top:12px;">
+                    <a href="return-exchange.html">View Policy →</a>
+                </p>
+            </div>
+
+            <div class="faq-card">
+                <h3>Delivery Questions?</h3>
+
+                <p>
+                    Read our shipping and delivery information
+                    for estimated timelines and updates.
+                </p>
+
+                <p style="margin-top:12px;">
+                    <a href="shipping-delivery.html">Learn More →</a>
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="footer-logo">SIXPLUS</div>
+
+    <p class="tagline">
+        WEAR YOUR IDENTITY. OWN YOUR STYLE.
+    </p>
+
+    <p>© 2026 SIXPLUS. ALL RIGHTS RESERVED.</p>
+</footer>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const order = document.getElementById("order").value.trim();
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value.trim();
+
+    /*
+      FRONTEND DEMO ONLY:
+      This form does not send or store messages yet.
+      Connect a backend or form service before publishing.
+    */
+
+    const supportEmail = "YOUR-EMAIL@example.com";
+
+    if (supportEmail === "YOUR-EMAIL@example.com") {
+        document.getElementById("formStatus").textContent =
+            "Contact form setup is incomplete. Please replace the placeholder support email and connect a form service before publishing.";
+        return;
+    }
+
+    const body = [
+        "Name: " + name,
+        "Email: " + email,
+        "Order Number: " + (order || "Not provided"),
+        "Topic: " + subject,
+        "",
+        "Message:",
+        message
+    ].join("\n");
+
+    const mailto =
+        "mailto:" + supportEmail +
+        "?subject=" + encodeURIComponent("SIXPLUS Support: " + subject) +
+        "&body=" + encodeURIComponent(body);
+
+    document.getElementById("formStatus").textContent =
+        "Opening your email application to send this message.";
+
+    window.location.href = mailto;
+});
+</script>
+
+</body>
+</html>

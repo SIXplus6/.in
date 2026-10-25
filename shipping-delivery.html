@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shipping & Delivery | SIXPLUS</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #111;
+    --white: #fff;
+    --grey: #777;
+    --light: #f6f6f6;
+    --border: #e8e8e8;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--black);
+    background: var(--white);
+    line-height: 1.7;
+}
+
+/* HEADER */
+
+header {
+    min-height: 75px;
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    opacity: .55;
+}
+
+/* HERO */
+
+.hero {
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 90px 20px;
+}
+
+.hero .eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 6vw, 65px);
+    line-height: 1.1;
+    font-weight: 900;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+.hero p {
+    max-width: 540px;
+    margin: 22px auto 0;
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* MAIN */
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 65px 25px 90px;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.intro h2 {
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    color: var(--grey);
+    font-size: 14px;
+}
+
+/* DELIVERY INFO */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.info-card {
+    background: var(--light);
+    padding: 25px 18px;
+    text-align: center;
+}
+
+.info-card .number {
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.info-card h3 {
+    font-size: 13px;
+    margin: 8px 0;
+}
+
+.info-card p {
+    color: var(--grey);
+    font-size: 12px;
+}
+
+/* POLICY */
+
+.policy {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.policy h2 {
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+.policy p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.policy ul {
+    padding-left: 22px;
+    color: #555;
+    font-size: 14px;
+}
+
+.policy li {
+    padding: 4px 0;
+}
+
+/* SUPPORT */
+
+.support {
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 25px;
+    margin-top: 45px;
+}
+
+.support h2 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.support p {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.support a {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 13px 25px;
+    background: var(--white);
+    color: var(--black);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.support a:hover {
+    background: #ddd;
+}
+
+/* FOOTER */
+
+footer {
+    background: #f6f6f6;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+.footer-logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+
+footer p {
+    font-size: 11px;
+    color: var(--grey);
+    margin-top: 10px;
+}
+
+footer .tagline {
+    color: var(--black);
+    letter-spacing: 1px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 10px;
+    }
+
+    .hero {
+        padding: 65px 20px;
+    }
+
+    .container {
+        padding: 45px 20px 60px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+    <a href="index.html" class="logo">SIXPLUS</a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#shop">Shop</a>
+        <a href="return-exchange.html">Returns</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+    <p class="eyebrow">SIXPLUS CUSTOMER CARE</p>
+
+    <h1>Shipping &<br>Delivery</h1>
+
+    <p>
+        From our collection to your doorstep.
+        Here's everything you need to know about
+        getting your SIXPLUS order delivered.
+    </p>
+</section>
+
+<!-- CONTENT -->
+
+<main class="container">
+
+    <section class="intro">
+        <h2>DELIVERY INFORMATION</h2>
+
+        <p>
+            We aim to make every SIXPLUS order a smooth
+            and reliable shopping experience.
+        </p>
+    </section>
+
+    <!-- IMPORTANT: Confirm these estimates before publishing -->
+
+    <section class="info-grid">
+
+        <div class="info-card">
+            <div class="number">1–2</div>
+            <h3>PROCESSING DAYS</h3>
+            <p>Suggested order preparation estimate.</p>
+        </div>
+
+        <div class="info-card">
+            <div class="number">4–8</div>
+            <h3>DELIVERY DAYS</h3>
+            <p>Suggested estimate after dispatch.</p>
+        </div>
+
+        <div class="info-card">
+            <div class="number">₹—</div>
+            <h3>SHIPPING CHARGES</h3>
+            <p>Shown at checkout once your rates are configured.</p>
+        </div>
+
+    </section>
+
+    <section class="policy">
+        <h2>01. Order Processing</h2>
+
+        <p>
+            Once your order is placed, we begin processing it.
+            Orders are generally prepared within 1–2 business
+            days, subject to product availability and payment
+            confirmation.
+        </p>
+
+        <p>
+            Orders placed on Sundays or public holidays may
+            take additional time to process.
+        </p>
+    </section>
+
+    <section class="policy">
+        <h2>02. Estimated Delivery Time</h2>
+
+        <p>
+            Delivery times depend on your delivery address,
+            courier service, weather and other logistical
+            conditions.
+        </p>
+
+        <ul>
+            <li>Order processing: approximately 1–2 business days.</li>
+            <li>Transit after dispatch: approximately 4–8 business days.</li>
+            <li>Remote locations may require additional time.</li>
+        </ul>
+
+        <p>
+            These are preliminary estimates, not guaranteed
+            delivery dates. The actual estimate should be
+            confirmed when your order is placed.
+        </p>
+    </section>
+
+    <section class="policy">
+        <h2>03. Shipping Charges</h2>
+
+        <p>
+            Applicable shipping charges will be displayed
+            during checkout before you complete your order.
+        </p>
+
+        <p>
+            Any free-shipping offers will be subject to their
+            stated terms and conditions.
+        </p>
+    </section>
+
+    <section class="policy">
+        <h2>04. Order Tracking</h2>
+
+        <p>
+            Once your order has been dispatched, tracking
+            information will be shared when available.
+            You can use the tracking details to check
+            your shipment's progress.
+        </p>
+
+        <p>
+            Tracking updates may take some time to appear
+            after the courier receives your package.
+        </p>
+    </section>
+
+    <section class="policy">
+        <h2>05. Delivery Address</h2>
+
+        <p>
+            Please provide your complete and accurate
+            delivery address, including your PIN code
+            and contact number, when placing your order.
+        </p>
+
+        <p>
+            If you need to correct your address, contact
+            customer support as soon as possible. Changes
+            may not be possible once an order is dispatched.
+        </p>
+    </section>
+
+    <section class="policy">
+        <h2>06. Delayed or Undelivered Orders</h2>
+
+        <p>
+            Unexpected circumstances, courier delays,
+            weather conditions or incorrect address details
+            may affect delivery timelines.
+        </p>
+
+        <p>
+            If your order appears delayed or the tracking
+            information has not updated, contact our support
+            team with your order number so we can help.
+        </p>
+    </section>
+
+    <section class="policy">
+        <h2>07. Incorrect or Damaged Deliveries</h2>
+
+        <p>
+            If you receive an incorrect, damaged or defective
+            product, contact us promptly with your order
+            number and clear photographs where relevant.
+        </p>
+
+        <p>
+            We will review the issue and help arrange an
+            appropriate resolution under our
+            <a href="return-exchange.html">Return & Exchange Policy</a>
+            and applicable law.
+        </p>
+    </section>
+
+    <section class="policy">
+        <h2>08. Cash on Delivery</h2>
+
+        <p>
+            Cash on Delivery (COD) will be available only
+            if the option is enabled for your order and
+            delivery PIN code at checkout.
+        </p>
+    </section>
+
+    <!-- SUPPORT -->
+
+    <section class="support">
+        <h2>NEED HELP WITH YOUR ORDER?</h2>
+
+        <p>
+            Our team is here to help with shipping,
+            delivery and tracking questions.
+        </p>
+
+        <!-- Replace with your real customer support email -->
+
+        <a href="mailto:YOUR-EMAIL@example.com">
+            CONTACT SUPPORT
+        </a>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="footer-logo">SIXPLUS</div>
+
+    <p class="tagline">
+        WEAR YOUR IDENTITY. OWN YOUR STYLE.
+    </p>
+
+    <p>© 2026 SIXPLUS. ALL RIGHTS RESERVED.</p>
+</footer>
+
+</body>
+</html>
